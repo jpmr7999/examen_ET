@@ -1,0 +1,109 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "@ionic/angular/css/palettes/dark.system.css";
+.toolbar-custom {
+    --background: var(--ion-color-primary);}
+.title-custom{
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--ion-color-dark);
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los cards se ajusten a una nueva línea si no hay suficiente espacio */
+    gap: 16px; /* Espacio entre los cards */
+  }
+  
+  ion-card {
+    flex: 1 1 calc(33.333% - 16px); /* Ajusta el tamaño de los cards; 3 cards por fila, con espacio entre ellos */
+    box-sizing: border-box; /* Incluye el padding y el borde en el cálculo del tamaño total */
+  }
+
+
+/* Fondo blanco para todos los modos de tema */
+:root {
+    --background-color: #ffffff; /* Fondo blanco */
+  }
+  
+  /* Modo claro */
+  [theme='light'] {
+    --background-color: #ffffff; /* Fondo blanco en modo claro */
+  }
+  
+  /* Modo oscuro */
+  [theme='dark'] {
+    --background-color: #ffffff; /* Fondo blanco en modo oscuro */
+  }
+  
+  /* Aplicar el color de fondo a los componentes */
+  ion-content, ion-header, ion-footer, ion-card {
+    --background: var(--background-color);
+  }
+  
+  ion-page {
+    --background: var(--background-color);
+  }
+  
+  /* Asegúrate de que otros componentes importantes también tengan fondo blanco */
+ion-header, ion-footer, ion-card {
+    --background: var(--background-color);
+  }
+  ion-content {
+    background-color: var(--ion-color-light); /* Fondo claro para el contenido */
+  }
+  
+  h2, h3, p, li {
+    color: var(--ion-color-dark); /* Texto oscuro */
+  }
+  
+  ion-header {
+    background-color: var(--ion-color-primary); /* Fondo del encabezado */
+  }
+  
+  ion-toolbar {
+    color: var(--ion-color-dark); /* Color del texto en el toolbar */
+  }
+  
+  .whatsapp-logo {
+    display: block;
+    margin: 0 auto;
+    width: 500px; /* Ajusta el tamaño según tus necesidades */
+    height: auto;
+  }
+  
+  

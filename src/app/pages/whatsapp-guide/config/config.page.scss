@@ -1,0 +1,35 @@
+.step {
+    margin-bottom: 20px;
+  }
+  
+  .step-image {
+    display: block;
+    margin: 0 auto;
+    width: 80%; /* Ajusta el tamaño según tus necesidades */
+    max-width: 400px; /* Tamaño máximo para pantallas grandes */
+    height: auto;
+  }
+  
+  ion-content {
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    color: var(--ion-color-dark);
+    font-size: 24px; /* Tamaño grande para el título */
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    color: var(--ion-color-dark);
+    font-size: 18px; /* Tamaño grande para el texto de los pasos */
+    line-height: 1.6; /* Espacio entre líneas para mayor legibilidad */
+    margin-bottom: 10px;
+  }
+  
+  strong {
+    font-weight: bold;
+    font-size: 18px; /* Tamaño grande para destacar los títulos de los pasos */
+  }
+  
