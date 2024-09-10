@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+onSubmit() {
+throw new Error('Method not implemented.');
+}
 
   constructor() { }
 

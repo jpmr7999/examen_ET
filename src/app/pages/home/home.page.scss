@@ -1,0 +1,112 @@
+ion-header {
+    --background: #fff; // Fondo del encabezado
+  }
+  
+  ion-toolbar {
+    height: 80px !important; // Ajusta la altura del toolbar
+    --background: var(--ion-color-tertiary); // Color de fondo del encabezado
+    display: flex;
+    align-items: center; // Centra verticalmente el contenido
+  }
+  
+  ion-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  
+  .title-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .asistencia {
+    font-size: 34px; // Tamaño de fuente más grande para "Duoc"
+    color: var(--ion-color-secondary); // Color azul para "Duoc"
+    font-weight: bold; // Opcional: negrita
+}
+  
+  .duoc {
+    font-size: 34px; // Tamaño de fuente más grande para "Duoc"
+    color: var(--ion-color-primary); // Color azul para "Duoc"
+    font-weight: bold; // Opcional: negrita
+  }
+  
+  .uc {
+    font-size: 34px; // Tamaño de fuente más grande para "UC"
+    color: var(--ion-color-secondary); // Color amarillo para "UC"
+    font-weight: bold; // Opcional: negrita
+  }
+  
+  ion-content {
+    --background: #fff; // Fondo del contenido
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form-container {
+    max-width: 500px; // Ajusta el ancho máximo del contenedor del formulario
+    width: 100%;
+    padding: 20px;
+  }
+  
+  ion-card {
+    background: var(--ion-color-tertiary); // Fondo azul para la tarjeta
+    border-radius: 12px; // Bordes redondeados para la tarjeta
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Sombra para la tarjeta
+  }
+  
+  ion-card-content {
+    padding: 20px; // Espacio interno en el contenido de la tarjeta
+  }
+  
+  ion-item {
+    margin-bottom: 16px; // Espacio entre los ítems
+  }
+  
+  ion-input {
+    width: 100%; // Ajusta el ancho del input para que ocupe el ancho del contenedor
+    color: var(ion-color-primary-contrast); // Color del texto de entrada
+  }
+  
+  ion-input ::ng-deep .input-inner {
+    color: var(--ion-color-secondary); // Color del texto mientras se escribe
+  }
+  
+  ion-input ::ng-deep .input-placeholder {
+    color: var(ion-color-primary-contrast); // Color del placeholder
+  }
+  
+  ion-input ::ng-deep .input-has-focus {
+    color: var(ion-color-primary-contrast); // Color del texto al enfocarse
+  }
+  /* Asegúrate de que el ion-input-password-toggle esté dentro del contexto de un ion-input */
+ion-input {
+    --padding-start: 0; /* Ajusta si es necesario */
+    --padding-end: 0;   /* Ajusta si es necesario */
+  
+    /* Estilos específicos para el ion-input-password-toggle dentro de un ion-input */
+    ion-input-password-toggle {
+      color: black; /* Cambia el color del ícono a negro */
+      --color: black; /* Cambia el color del toggle a negro */
+      --border-color: black; /* Cambia el color del borde del toggle a negro */
+    }
+  
+    /* También puedes necesitar ajustar el color de fondo del ícono si es necesario */
+    ion-input-password-toggle .toggle-icon {
+      color: black; /* Cambia el color del ícono dentro del toggle a negro */
+    }
+  }
+
+.custom-button {
+  --background: #0033A0; /* Azul oscuro */
+  --color: #FFFFFF; /* Letras blancas */
+  --padding-start: 10px; /* Ajusta el padding según lo necesites */
+  --padding-end: 10px; /* Ajusta el padding según lo necesites */
+  --border-radius: 6px; /* Ajusta el radio del borde si lo deseas */
+  margin-top: 10px; /* Ajusta el margen superior para separar del contenido */
+  max-width: 150px; /* Tamaño del botón */
+}
+  

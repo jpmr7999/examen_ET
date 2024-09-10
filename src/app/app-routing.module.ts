@@ -15,10 +15,6 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
-  {
-    path: 'whatsapp-guide',
-    loadChildren: () => import('./pages/whatsapp-guide/whatsapp-guide.module').then( m => m.WhatsappGuidePageModule)
-  },
 ];
 
 @NgModule({
