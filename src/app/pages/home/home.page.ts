@@ -1,18 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage implements OnInit {
-onSubmit() {
-throw new Error('Method not implemented.');
-}
+export class HomePage {
+  constructor(private router: Router) {}
 
-  constructor() { }
-
-  ngOnInit() {
+  onSubmit() {
+    this.router.navigate(['/principal']);  // Navega a la ruta '/principal'
   }
-
 }
