@@ -1,10 +1,24 @@
-<app-encabezado titulo="DuocUC"></app-encabezado>
-
+<app-encabezado titulo="Asistencia en Línea"></app-encabezado>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">principal</ion-title>
+      <ion-title size="large">Generar Código QR</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button (click)="generateQRCode()">Generar Código QR</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="generatedQRCode">
+      <ion-col class="ion-text-center">
+        <!-- Aquí se muestra el código QR -->
+        <ngx-qrcode [qrc-value]="generatedQRCode"></ngx-qrcode>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
