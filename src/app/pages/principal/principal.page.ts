@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.page.html',
   styleUrls: ['./principal.page.scss'],
 })
-export class PrincipalPage implements OnInit {
+export class PrincipalPage {
+  constructor(private navCtrl: NavController) {}
 
-  constructor() { }
-
-  ngOnInit() {
+  goBack() {
+    this.navCtrl.back(); // Regresa a la página anterior
   }
-
 }
