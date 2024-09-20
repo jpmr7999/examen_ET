@@ -2,7 +2,9 @@
   <ion-toolbar color="tertiary">
     <ion-title>
       <div class="title-container">
-        <span class="asistencia">Asistencia </span><span class="duoc">Duoc</span><span class="uc">UC</span>
+        <span class="asistencia">Asistencia</span>
+        <span class="duoc">Duoc</span>
+        <span class="uc">UC</span>
       </div>
     </ion-title>
   </ion-toolbar>
@@ -15,18 +17,24 @@
         <ion-card-content>
           <ion-list>
             <ion-item>
-              <ion-input labelPlacement="floating" value="">
+              <!-- Vinculamos el email con la propiedad 'email' -->
+              <ion-input labelPlacement="floating" [(ngModel)]="email">
                 <div slot="label">Email <ion-text color="danger">(Required)</ion-text></div>
               </ion-input>
             </ion-item>
             <ion-item>
-              <ion-input type="password" label="Password" value="">
+              <!-- Vinculamos la contraseña con la propiedad 'password' -->
+              <ion-input type="password" label="Password" [(ngModel)]="password">
                 <ion-input-password-toggle slot="end"></ion-input-password-toggle>
               </ion-input>
             </ion-item>
           </ion-list>
-          <!-- Botón Aceptar con clase personalizada -->
-          <ion-button class="custom-button" expand="full" (click)="onSubmit()">Aceptar</ion-button>
+
+          <!-- Botón Aceptar que ejecuta el método onSubmit -->
+          <ion-button class="custom-button accept-button" expand="full" (click)="onSubmit()">Aceptar</ion-button>
+
+          <!-- Botón para restablecer contraseña -->
+          <ion-button class="custom-button reset-button" expand="full" fill="clear" (click)="onResetPassword()">Restablecer contraseña</ion-button>
         </ion-card-content>
       </ion-card>
     </div>

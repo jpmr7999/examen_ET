@@ -1,112 +1,106 @@
 ion-header {
-    --background: #fff; // Fondo del encabezado
-  }
-  
-  ion-toolbar {
-    height: 80px !important; // Ajusta la altura del toolbar
-    --background: var(--ion-color-tertiary); // Color de fondo del encabezado
-    display: flex;
-    align-items: center; // Centra verticalmente el contenido
-  }
-  
-  ion-title {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-  }
-  
-  .title-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .asistencia {
-    font-size: 34px; // Tamaño de fuente más grande para "Duoc"
-    color: var(--ion-color-secondary); // Color azul para "Duoc"
-    font-weight: bold; // Opcional: negrita
+  --background: #f8f9fa; // Fondo del encabezado más claro y limpio
 }
-  
-  .duoc {
-    font-size: 34px; // Tamaño de fuente más grande para "Duoc"
-    color: var(--ion-color-primary); // Color azul para "Duoc"
-    font-weight: bold; // Opcional: negrita
-  }
-  
-  .uc {
-    font-size: 34px; // Tamaño de fuente más grande para "UC"
-    color: var(--ion-color-secondary); // Color amarillo para "UC"
-    font-weight: bold; // Opcional: negrita
-  }
-  
-  ion-content {
-    --background: #fff; // Fondo del contenido
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .form-container {
-    max-width: 500px; // Ajusta el ancho máximo del contenedor del formulario
-    width: 100%;
-    padding: 20px;
-  }
-  
-  ion-card {
-    background: var(--ion-color-tertiary); // Fondo azul para la tarjeta
-    border-radius: 12px; // Bordes redondeados para la tarjeta
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Sombra para la tarjeta
-  }
-  
-  ion-card-content {
-    padding: 20px; // Espacio interno en el contenido de la tarjeta
-  }
-  
-  ion-item {
-    margin-bottom: 16px; // Espacio entre los ítems
-  }
-  
-  ion-input {
-    width: 100%; // Ajusta el ancho del input para que ocupe el ancho del contenedor
-    color: var(ion-color-primary-contrast); // Color del texto de entrada
-  }
-  
-  ion-input ::ng-deep .input-inner {
-    color: var(--ion-color-secondary); // Color del texto mientras se escribe
-  }
-  
-  ion-input ::ng-deep .input-placeholder {
-    color: var(ion-color-primary-contrast); // Color del placeholder
-  }
-  
-  ion-input ::ng-deep .input-has-focus {
-    color: var(ion-color-primary-contrast); // Color del texto al enfocarse
-  }
-  /* Asegúrate de que el ion-input-password-toggle esté dentro del contexto de un ion-input */
+
+ion-toolbar {
+  height: 80px !important; // Ajusta la altura del toolbar
+  --background: var(--ion-color-tertiary); // Color de fondo del encabezado
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Sombra sutil
+}
+
+ion-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+}
+
+.asistencia {
+  font-size: 32px; // Tamaño de fuente grande
+  color: var(--ion-color-secondary); // Color personalizado
+  font-weight: 600; // Peso medio
+}
+
+.duoc, .uc {
+  font-size: 32px; // Tamaño de fuente para "Duoc" y "UC"
+  color: var(--ion-color-primary); // Color azul para "Duoc"
+  font-weight: 600; // Peso medio
+}
+
+.uc {
+  color: var(--ion-color-secondary); // Color amarillo para "UC"
+}
+
+ion-content {
+  --background: #f4f6f8; // Fondo suave y claro
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; // Espacio interno para dar más aire
+}
+
+.form-container {
+  max-width: 450px; // Ajusta el ancho máximo del contenedor del formulario
+  width: 100%;
+  padding: 20px;
+}
+
+ion-card {
+  background: var(--ion-color-light); // Fondo más claro para la tarjeta
+  border-radius: 16px; // Bordes redondeados más suaves
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); // Sombra más pronunciada
+}
+
+ion-card-content {
+  padding: 25px; // Espacio interno
+}
+
+ion-item {
+  margin-bottom: 18px; // Espacio entre los ítems
+}
+
 ion-input {
-    --padding-start: 0; /* Ajusta si es necesario */
-    --padding-end: 0;   /* Ajusta si es necesario */
-  
-    /* Estilos específicos para el ion-input-password-toggle dentro de un ion-input */
-    ion-input-password-toggle {
-      color: black; /* Cambia el color del ícono a negro */
-      --color: black; /* Cambia el color del toggle a negro */
-      --border-color: black; /* Cambia el color del borde del toggle a negro */
-    }
-  
-    /* También puedes necesitar ajustar el color de fondo del ícono si es necesario */
-    ion-input-password-toggle .toggle-icon {
-      color: black; /* Cambia el color del ícono dentro del toggle a negro */
-    }
-  }
+  --background: transparent; // Fondo transparente para inputs
+  --color: var(--ion-color-primary); // Color del texto de entrada
+  border-bottom: 1px solid var(--ion-color-primary); // Línea debajo del input
+}
+
+ion-input-password-toggle {
+  color: var(--ion-color-primary);
+}
 
 .custom-button {
-  --background: #0033A0; /* Azul oscuro */
-  --color: #FFFFFF; /* Letras blancas */
-  --padding-start: 10px; /* Ajusta el padding según lo necesites */
-  --padding-end: 10px; /* Ajusta el padding según lo necesites */
-  --border-radius: 6px; /* Ajusta el radio del borde si lo deseas */
-  margin-top: 10px; /* Ajusta el margen superior para separar del contenido */
-  max-width: 150px; /* Tamaño del botón */
+  --background: #007bff; // Botón azul más vibrante
+  --color: #fff; // Letras blancas
+  --padding-start: 15px;
+  --padding-end: 15px;
+  --border-radius: 8px;
+  margin-top: 15px;
+  transition: transform 0.2s ease-in-out; // Efecto de transición al hacer hover
+
+  &:hover {
+    transform: translateY(-2px); // Pequeño efecto hover
+  }
 }
-  
+
+// Botón Aceptar
+.accept-button {
+  --background: #28a745; // Verde para el botón de aceptar
+}
+
+// Botón para restablecer contraseña
+.reset-button {
+  --color: var(--ion-color-secondary); // Color de texto secundario
+  --border-radius: 8px;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+}

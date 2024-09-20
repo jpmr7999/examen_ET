@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router'; // Importamos Router para la navegación por rutas
-import { NavController } from '@ionic/angular'; // Importamos NavController para la navegación hacia adelante y atrás
+import { Router } from '@angular/router';
+import { NavController, AlertController } from '@ionic/angular'; // Importamos AlertController para mostrar mensajes de error
 
 @Component({
   selector: 'app-home',
@@ -9,20 +9,57 @@ import { NavController } from '@ionic/angular'; // Importamos NavController para
 })
 export class HomePage {
 
-  constructor(private router: Router, private navCtrl: NavController) {}  // Inyectamos tanto Router como NavController
+  email: string = '';  // Variable para almacenar el email ingresado
+  password: string = '';  // Variable para almacenar la contraseña ingresada
 
-  // Método para navegar a la página de principal
-  onSubmit() {
-    this.router.navigate(['/principal']);  // Navega a la ruta '/principal'
+  constructor(
+    private router: Router,
+    private navCtrl: NavController,
+    private alertCtrl: AlertController // Inyectamos AlertController para mostrar alertas de error
+  ) {}
+
+  // Método para manejar la verificación y envío del formulario
+  async onSubmit() {
+    // Verificar que el email y la contraseña no estén vacíos
+    if (this.email.trim() === '' || this.password.trim() === '') {
+      // Mostrar una alerta si alguno de los campos está vacío
+      const alert = await this.alertCtrl.create({
+        header: 'Error',
+        message: 'Por favor, completa ambos campos.',
+        buttons: ['OK']
+      });
+      await alert.present();
+    } else {
+      // Si todo está bien, navega a la página principal
+      this.router.navigate(['/principal']);
+    }
   }
 
-  // Método para navegar a la página de QR
-  goToQrCodePage() {
-    this.navCtrl.navigateForward('/qr-code');  // Navega hacia adelante a la página '/qr-code'
+  // Método para restablecer contraseña
+  async onResetPassword() {
+    const alert = await this.alertCtrl.create({
+      header: 'Restablecer Contraseña',
+      message: '¿Te gustaría recibir un enlace a tu correo para restablecer tu contraseña?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+        },
+        {
+          text: 'Enviar enlace',
+          handler: () => {
+            this.sendPasswordResetEmail();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
-  // Método para volver atrás o salir (ejemplo)
-  goBack() {
-    this.navCtrl.navigateBack('/');  // Navega hacia atrás o a la página principal '/'
+  // Lógica para enviar el correo de restablecimiento (esto es solo un ejemplo)
+  sendPasswordResetEmail() {
+    console.log('Correo de restablecimiento enviado');
+    // Aquí puedes integrar la lógica real para enviar un correo usando un servicio backend o proveedor como Firebase.
   }
 }
