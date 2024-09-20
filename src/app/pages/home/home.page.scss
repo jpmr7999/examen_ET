@@ -1,5 +1,5 @@
 ion-header {
-  --background: #f8f9fa; // Fondo del encabezado más claro y limpio
+  --background: #f8f9fa; // Fondo claro del encabezado
 }
 
 ion-toolbar {
@@ -13,37 +13,52 @@ ion-toolbar {
 ion-title {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center; // Centramos el contenido
   width: 100%;
+  overflow: hidden; // Evita desbordamiento del contenido
 }
 
 .title-container {
   display: flex;
   align-items: center;
+  justify-content: center; // Centrar el texto
+  flex-wrap: nowrap; // Evita que las palabras se dividan en múltiples líneas en pantallas más grandes
+  white-space: nowrap; // Asegura que las palabras no se separen
+  text-align: center; // Texto centrado
+  width: 100%;
 }
 
-.asistencia {
-  font-size: 32px; // Tamaño de fuente grande
-  color: var(--ion-color-secondary); // Color personalizado
-  font-weight: 600; // Peso medio
+.asistencia, .duoc, .uc {
+  font-size: 28px; // Tamaño de fuente ajustado para evitar corte
+  font-weight: 600; // Negrita moderada para todas las palabras
 }
 
-.duoc, .uc {
-  font-size: 32px; // Tamaño de fuente para "Duoc" y "UC"
-  color: var(--ion-color-primary); // Color azul para "Duoc"
-  font-weight: 600; // Peso medio
+.duoc {
+  margin-left: 8px; // Separación controlada entre "Asistencia" y "Duoc"
 }
 
 .uc {
-  color: var(--ion-color-secondary); // Color amarillo para "UC"
+  margin-left: 8px; // Separación controlada entre "Duoc" y "UC"
+  color: var(--ion-color-secondary); // Color para "UC"
 }
+
+@media (max-width: 400px) {
+  .asistencia, .duoc, .uc {
+    font-size: 22px; // Disminuir el tamaño de la fuente en pantallas pequeñas
+  }
+
+  .title-container {
+    flex-wrap: wrap; // Permitir que se ajusten en varias líneas en pantallas pequeñas si es necesario
+  }
+}
+
 
 ion-content {
   --background: #f4f6f8; // Fondo suave y claro
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px; // Espacio interno para dar más aire
+  padding: 20px;
 }
 
 .form-container {
@@ -53,21 +68,21 @@ ion-content {
 }
 
 ion-card {
-  background: var(--ion-color-light); // Fondo más claro para la tarjeta
-  border-radius: 16px; // Bordes redondeados más suaves
+  background: var(--ion-color-light); // Fondo claro para la tarjeta
+  border-radius: 20px; // Bordes más redondeados
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); // Sombra más pronunciada
 }
 
 ion-card-content {
-  padding: 25px; // Espacio interno
+  padding: 25px;
 }
 
 ion-item {
-  margin-bottom: 18px; // Espacio entre los ítems
+  margin-bottom: 18px;
 }
 
 ion-input {
-  --background: transparent; // Fondo transparente para inputs
+  --background: transparent; // Fondo transparente
   --color: var(--ion-color-primary); // Color del texto de entrada
   border-bottom: 1px solid var(--ion-color-primary); // Línea debajo del input
 }
@@ -77,28 +92,32 @@ ion-input-password-toggle {
 }
 
 .custom-button {
-  --background: #007bff; // Botón azul más vibrante
+  --background: #007bff; // Botón azul vibrante
   --color: #fff; // Letras blancas
   --padding-start: 15px;
   --padding-end: 15px;
-  --border-radius: 8px;
+  --border-radius: 24px; // Botones más redondos
   margin-top: 15px;
-  transition: transform 0.2s ease-in-out; // Efecto de transición al hacer hover
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; // Transición suave
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Sombra para darle un efecto flotante
 
   &:hover {
     transform: translateY(-2px); // Pequeño efecto hover
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); // Sombra más pronunciada en hover
   }
 }
 
 // Botón Aceptar
 .accept-button {
   --background: #28a745; // Verde para el botón de aceptar
+  --border-radius: 30px; // Botón aún más redondo
 }
 
 // Botón para restablecer contraseña
 .reset-button {
   --color: var(--ion-color-secondary); // Color de texto secundario
-  --border-radius: 8px;
+  --border-radius: 30px; // Botón redondeado
   margin-top: 10px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
