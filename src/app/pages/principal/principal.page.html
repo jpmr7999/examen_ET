@@ -9,26 +9,18 @@
   <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
     <h2 style="text-align: center;">Bienvenido, ¿Qué deseas hacer hoy?</h2>
 
+    <!-- Botón para marcar asistencia que navega a la página de FechaAsistencia -->
     <ion-button
       expand="block"
       color="primary"
       shape="round"
       size="large"
       style="--border-radius: 12px; --padding-start: 16px; --padding-end: 16px; margin-top: 20px;"
-      (click)="goToQrCodePage()"> <!-- Llama al método para navegar a la página de QR -->
+      (click)="goToFechaAsistenciaPage()"> <!-- Llama al método para navegar a la página de FechaAsistencia -->
       <ion-icon slot="start" name="qr-code-outline"></ion-icon>
-      Generar Código QR
+      Marcar asistencia
     </ion-button>
 
-    <ion-button
-      expand="block"
-      color="light"
-      shape="round"
-      size="large"
-      style="--border-radius: 12px; --padding-start: 16px; --padding-end: 16px; margin-top: 20px;"
-      (click)="goBack()"> <!-- Llama al método para navegar hacia atrás o salir -->
-      <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
-      Quiero salir
-    </ion-button>
+
   </div>
 </ion-content>

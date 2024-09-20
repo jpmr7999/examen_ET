@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Seleccionar Fecha de Asistencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
+    <h2 style="text-align: center;">Selecciona la fecha para marcar la asistencia</h2>
+
+    <ion-datetime
+      presentation="date"
+      (ionChange)="onDateSelected($event)"
+      placeholder="Selecciona una fecha">
+    </ion-datetime>
+
+    <ion-button
+      expand="block"
+      color="primary"
+      shape="round"
+      size="large"
+      style="--border-radius: 12px; --padding-start: 16px; --padding-end: 16px; margin-top: 20px;"
+      (click)="confirmarAsistencia()">
+      Confirmar Asistencia
+    </ion-button>
+  </div>
+</ion-content>

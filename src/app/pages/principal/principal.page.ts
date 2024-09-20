@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular'; // Importa NavController
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-principal',
@@ -10,13 +10,13 @@ export class PrincipalPage {
 
   constructor(private navCtrl: NavController) {}
 
-  // Método para navegar a la página de QR
-  goToQrCodePage() {
-    this.navCtrl.navigateForward('/qr-code');  // Navega hacia adelante a la página '/qr-code'
+  // Navegar a la página de selección de fecha de asistencia
+  goToFechaAsistenciaPage() {
+    this.navCtrl.navigateForward('/fecha-asistencia'); // Cambia la ruta a la página que has generado
   }
 
-  // Método para salir o regresar a la página anterior
+  // Método para regresar
   goBack() {
-    this.navCtrl.navigateBack('/');  // Navega hacia atrás o a la raíz
+    this.navCtrl.back();
   }
 }
