@@ -1,13 +1,11 @@
-<app-encabezado titulo="DuocUC"></app-encabezado>
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-title size="large">Principal</ion-title>
+  </ion-toolbar>
+</ion-header>
 
+<!-- Contenedor centrado para el mensaje y los botones -->
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Principal</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <!-- Contenedor centrado para el mensaje y los botones -->
   <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
     <h2 style="text-align: center;">Bienvenido, ¿Qué deseas hacer hoy?</h2>
 
@@ -16,8 +14,9 @@
       color="primary"
       shape="round"
       size="large"
-      style="--border-radius: 12px; --padding-start: 16px; --padding-end: 16px; margin-top: 20px;">
-      <ion-icon slot="start" name="qr-code-outline"></ion-icon> <!-- Icono de QR -->
+      style="--border-radius: 12px; --padding-start: 16px; --padding-end: 16px; margin-top: 20px;"
+      (click)="goToQrCodePage()"> <!-- Llama al método para navegar a la página de QR -->
+      <ion-icon slot="start" name="qr-code-outline"></ion-icon>
       Generar Código QR
     </ion-button>
 
@@ -27,8 +26,8 @@
       shape="round"
       size="large"
       style="--border-radius: 12px; --padding-start: 16px; --padding-end: 16px; margin-top: 20px;"
-      (click)="goBack()">
-      <ion-icon slot="start" name="arrow-back-outline"></ion-icon> <!-- Icono de salir -->
+      (click)="goBack()"> <!-- Llama al método para navegar hacia atrás o salir -->
+      <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
       Quiero salir
     </ion-button>
   </div>
