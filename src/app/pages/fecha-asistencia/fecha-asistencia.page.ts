@@ -7,7 +7,8 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./fecha-asistencia.page.scss'],
 })
 export class FechaAsistenciaPage {
-  selectedDate: string = ''; // Inicialización con cadena vacía
+  selectedDate: string = '';
+  selectedSection: string = ''; // Agregar la propiedad para la sección
 
   constructor(private navCtrl: NavController) {}
 
@@ -15,13 +16,19 @@ export class FechaAsistenciaPage {
     this.selectedDate = event.detail.value; // Obtener la fecha seleccionada
   }
 
+  onSectionSelected(event: any) {
+    this.selectedSection = event.detail.value; // Obtener la sección seleccionada
+    console.log('Sección seleccionada:', this.selectedSection);
+  }
+
   confirmarAsistencia() {
-    if (this.selectedDate) {
+    if (this.selectedDate && this.selectedSection) {
       console.log('Asistencia marcada para la fecha:', this.selectedDate);
-      // Navegar a la página del código QR después de seleccionar la fecha
+      console.log('Sección seleccionada:', this.selectedSection);
+      // Navegar a la página del código QR
       this.navCtrl.navigateForward('/qr-code');
     } else {
-      console.log('Por favor selecciona una fecha.');
+      console.log('Por favor selecciona una fecha y una sección.');
     }
   }
 }
