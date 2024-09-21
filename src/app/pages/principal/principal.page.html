@@ -4,12 +4,12 @@
   </ion-toolbar>
 </ion-header>
 
-<!-- Contenedor centrado para el mensaje y los botones -->
+<!--  mensaje y los botones -->
 <ion-content [fullscreen]="true">
   <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
     <h2 style="text-align: center;">Bienvenido, ¿Qué deseas hacer hoy?</h2>
 
-    <!-- Cuadro con la información de la persona -->
+    <!-- Cuadro de info-->
     <div style="text-align: center; margin-top: 20px; border: 1px solid #ddd; border-radius: 12px; padding: 20px; width: 80%; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
       <img src="assets/xokas.jpg" alt="Gonzalo Perez" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 15px; border: 2px solid #007bff;">
       <h3 style="margin: 10px 0; font-weight: bold; color: #333;">Gonzalo Perez</h3>
@@ -22,14 +22,14 @@
       Recuerda que es fundamental que tus alumnos marquen su asistencia. ¡Asegúrate de motivarlos a participar en las clases.
     </p>
 
-    <!-- Botón para marcar asistencia que navega a la página de FechaAsistencia -->
+    <!-- Botón para marcar asistencia del Duocito -->
     <ion-button
       expand="block"
       color="primary"
       shape="round"
       size="large"
       style="--border-radius: 12px; --padding-start: 16px; --padding-end: 16px; margin-top: 20px;"
-      (click)="goToFechaAsistenciaPage()"> <!-- Llama al método para navegar a la página de FechaAsistencia -->
+      (click)="goToFechaAsistenciaPage()"> <!--Con esto llamo a FechaAsistencia -->
       <ion-icon slot="start" name="qr-code-outline"></ion-icon>
       Marcar asistencia
     </ion-button>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController, AlertController } from '@ionic/angular'; // Importamos AlertController para mostrar mensajes de error
+import { NavController, AlertController } from '@ionic/angular'; //a mostrar mensajes de error
 
 @Component({
   selector: 'app-home',
@@ -9,13 +9,13 @@ import { NavController, AlertController } from '@ionic/angular'; // Importamos A
 })
 export class HomePage {
 
-  email: string = '';  // Variable para almacenar el email ingresado
-  password: string = '';  // Variable para almacenar la contraseña ingresada
+  email: string = '';
+  password: string = '';
 
   constructor(
     private router: Router,
     private navCtrl: NavController,
-    private alertCtrl: AlertController // Inyectamos AlertController para mostrar alertas de error
+    private alertCtrl: AlertController // Con esto muestro los errores
   ) {}
 
   // Método para manejar la verificación y envío del formulario
@@ -35,7 +35,7 @@ export class HomePage {
     }
   }
 
-  // Método para restablecer contraseña
+  //  restablecer contraseña
   async onResetPassword() {
     const alert = await this.alertCtrl.create({
       header: 'Restablecer Contraseña',
@@ -60,6 +60,5 @@ export class HomePage {
   // Lógica para enviar el correo de restablecimiento (esto es solo un ejemplo)
   sendPasswordResetEmail() {
     console.log('Correo de restablecimiento enviado');
-    // Aquí puedes integrar la lógica real para enviar un correo usando un servicio backend o proveedor como Firebase.
   }
 }

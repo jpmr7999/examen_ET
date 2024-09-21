@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Confirmar Asistencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
+    <h2 style="text-align: center;">¿Confirmar Asistencia?</h2>
+    <p style="text-align: center;">Por favor, confirma que has asistido a la clase.</p>
+
+    <ion-button expand="full" color="success" style="margin-top: 20px;" (click)="confirmarAsistencia()">
+      Confirmar
+    </ion-button>
+
+    <ion-button expand="full" color="light" style="margin-top: 10px;" (click)="cancelar()">
+      Cancelar
+    </ion-button>
+  </div>
+</ion-content>

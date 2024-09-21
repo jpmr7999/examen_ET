@@ -8,7 +8,7 @@ import { NavController } from '@ionic/angular';
 })
 export class FechaAsistenciaPage {
   selectedDate: string = '';
-  selectedSection: string = ''; // Agregar la propiedad para la sección
+  selectedSection: string = '';
 
   constructor(private navCtrl: NavController) {}
 

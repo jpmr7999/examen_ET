@@ -26,7 +26,12 @@ const routes: Routes = [
   {
     path: 'fecha-asistencia',
     loadChildren: () => import('./pages/fecha-asistencia/fecha-asistencia.module').then( m => m.FechaAsistenciaPageModule)
+  },
+  {
+    path: 'confirm-asistencia',
+    loadChildren: () => import('./pages/confirm-asistencia/confirm-asistencia.module').then( m => m.ConfirmAsistenciaPageModule)
   }
+
 
 ];
 

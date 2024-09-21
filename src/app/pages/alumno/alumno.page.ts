@@ -12,7 +12,7 @@ export class AlumnoPage {
 
   login() {
     // Aquí iría la lógica para autenticar al usuario
-    // Por ahora, solo redirigimos a una página de inicio después de iniciar sesión
-    this.router.navigate(['/home']);
+    // Redirigimos a la página de confirmar asistencia
+    this.router.navigate(['/confirm-asistencia']);
   }
 }

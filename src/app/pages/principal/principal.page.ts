@@ -10,12 +10,11 @@ export class PrincipalPage {
 
   constructor(private navCtrl: NavController) {}
 
-  // Navegar a la página de selección de fecha de asistencia
+  // Va a la página de selección de fecha de asistencia
   goToFechaAsistenciaPage() {
-    this.navCtrl.navigateForward('/fecha-asistencia'); // Cambia la ruta a la página que has generado
+    this.navCtrl.navigateForward('/fecha-asistencia');
   }
-
-  // Método para regresar
+// Con esto regreso
   goBack() {
     this.navCtrl.back();
   }
