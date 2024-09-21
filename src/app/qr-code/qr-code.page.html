@@ -10,7 +10,6 @@
 <ion-content [fullscreen]="true">
   <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
     <h2 style="text-align: center;">Aquí está tu código QR</h2>
-    <!-- Imagen del código QR -->
-    <img src="assets/escaneame.png" alt="Código QR" style="width: 200px; height: 200px; margin-top: 20px;">
+    <img src="assets/escaneame.png" alt="Código QR" style="width: 200px; height: 200px; margin-top: 20px;" (click)="goToAlumno()">
   </div>
 </ion-content>

@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-qr-code',
   templateUrl: './qr-code.page.html',
   styleUrls: ['./qr-code.page.scss'],
 })
-export class QrCodePage implements OnInit {
+export class QrCodePage {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {
+  goToAlumno() {
+    this.router.navigate(['/alumno']);
   }
-
 }
