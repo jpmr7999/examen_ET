@@ -1,32 +1,43 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Inicio de Sesión</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Inicio de Sesión</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
-    <h2 style="text-align: center;">Iniciar Sesión como Alumno</h2>
+  <!-- Encabezado de Imagen, opcional -->
+  <div class="login-header">
+    <div class="logo-container">
+      <img src="assets/registrap.png" alt="RegistrAPP Logo" class="login-logo">
+    </div>
+  </div>
 
-    <ion-item>
+
+  <!-- Contenedor de Formulario de Inicio de Sesión -->
+  <div class="login-form">
+    <h2 class="ion-text-center">Inicia Sesión</h2>
+    <p class="ion-text-center">Ingresa con tu cuenta de alumno</p>
+
+    <!-- Entrada de Correo Electrónico -->
+    <ion-item class="input-item">
       <ion-label position="floating">Correo Electrónico</ion-label>
       <ion-input type="email" required></ion-input>
     </ion-item>
 
-    <ion-item>
+    <!-- Entrada de Contraseña -->
+    <ion-item class="input-item">
       <ion-label position="floating">Contraseña</ion-label>
       <ion-input type="password" required></ion-input>
     </ion-item>
 
-    <ion-button expand="full" color="primary" style="margin-top: 20px;" (click)="login()">
+    <!-- Botón de Iniciar Sesión -->
+    <ion-button expand="block" color="primary" class="login-button" (click)="login()">
       Iniciar Sesión
     </ion-button>
 
-    <p style="margin-top: 20px; text-align: center;">
-      ¿No tienes cuenta? <a routerLink="/register">Regístrate aquí</a>
+    <!-- Enlace para restablecer contraseña -->
+    <p class="ion-text-center forgot-password">
+      ¿Olvidaste tu contraseña? <a (click)="resetPassword()">Reestablecer aquí</a>
     </p>
   </div>
 </ion-content>
