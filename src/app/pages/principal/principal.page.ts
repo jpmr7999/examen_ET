@@ -14,8 +14,9 @@ export class PrincipalPage {
   goToFechaAsistenciaPage() {
     this.navCtrl.navigateForward('/fecha-asistencia');
   }
-// Con esto regreso
-  goBack() {
-    this.navCtrl.back();
+
+  // Función para cerrar sesión
+  logout() {
+    this.navCtrl.navigateRoot('/home'); // Redirige a la página de inicio
   }
 }
