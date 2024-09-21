@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-principal',
@@ -8,14 +8,16 @@ import { NavController } from '@ionic/angular';
 })
 export class PrincipalPage {
 
-  constructor(private navCtrl: NavController) {}
+  constructor(private navCtrl: NavController, private menu: MenuController) {}
 
   // Va a la página de selección de fecha de asistencia
   goToFechaAsistenciaPage() {
     this.navCtrl.navigateForward('/fecha-asistencia');
   }
-// Con esto regreso
-  goBack() {
-    this.navCtrl.back();
+
+  // Función para cerrar sesión
+  logout() {
+    this.menu.close(); // Cierra el menú si está abierto
+    this.navCtrl.navigateRoot('/pages/home/home.module'); // Redirige a la página de inicio
   }
 }
