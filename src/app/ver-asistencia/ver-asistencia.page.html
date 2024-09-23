@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Asistencias alumno</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <h2 style="text-align: center; font-size: 1.4rem; margin-top: 10px;">Registro de Asistencia</h2>
+    
+    <!-- Accordion Group para asignaturas -->
+    <ion-accordion-group>
+      <ion-accordion *ngFor="let asignatura of asistenciasPorAsignatura">
+        <!-- Encabezado de cada asignatura (eliminar el icono manual) -->
+        <ion-item slot="header" color="light" style="--padding-start: 20px;">
+          <ion-label>
+            <h3 style="font-size: 1rem; font-weight: bold;">{{ asignatura.nombre }}</h3>
+          </ion-label>
+        </ion-item>
+        
+        <!-- Lista de registros de asistencia -->
+        <ion-list slot="content" style="padding-left: 10px; padding-right: 10px;">
+          <ion-item *ngFor="let registro of asignatura.registros">
+            <ion-label>
+              <h3 style="font-size: 0.9rem;">{{ registro.fecha }}</h3>
+              <p style="font-size: 0.8rem; color: #666;">Estado: {{ registro.estado }}</p>
+            </ion-label>
+            <ion-badge slot="end" [color]="registro.estado === 'Presente' ? 'success' : (registro.estado === 'Justificado' ? 'warning' : 'danger')" style="font-size: 0.8rem;">
+              {{ registro.estado }}
+            </ion-badge>
+          </ion-item>
+        </ion-list>
+      </ion-accordion>
+    </ion-accordion-group>
+  </div>
+</ion-content>
