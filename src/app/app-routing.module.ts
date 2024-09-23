@@ -30,9 +30,18 @@ const routes: Routes = [
   {
     path: 'confirm-asistencia',
     loadChildren: () => import('./pages/confirm-asistencia/confirm-asistencia.module').then( m => m.ConfirmAsistenciaPageModule)
-  },  {
+  },
+  {
     path: 'ver-asistencia',
     loadChildren: () => import('./ver-asistencia/ver-asistencia.module').then( m => m.VerAsistenciaPageModule)
+  },
+  {
+    path: 'alumno-principal',
+    loadChildren: () => import('./pages/alumno-principal/alumno-principal.module').then( m => m.AlumnoPrincipalPageModule)
+  },
+  {
+    path: 'escanearqr',
+    loadChildren: () => import('./pages/escanearqr/escanearqr.module').then( m => m.EscanearqrPageModule)
   }
 
 

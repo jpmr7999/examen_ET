@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>
+      <div class="title-container">
+        <span class="RegistrApp">RegistrApp</span>
+      </div>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()" expand="full" fill="clear">
+        <ion-icon name="person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- SECCION DE LAS ION CARDS -->
+  
+  <ion-card color="primary" (click)="irAAsistencia()">
+    <ion-card-header>
+      <ion-card-title>Asistencia</ion-card-title>
+      <ion-card-subtitle>Revisa tu Asistencia Aquí!</ion-card-subtitle>
+    </ion-card-header>  
+  </ion-card>
+
+  <ion-card color="secondary" (click)="irACodigoQR()">
+    <ion-card-header>
+      <ion-card-title>Código QR</ion-card-title>
+      <ion-card-subtitle>Registra tu Asistencia</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+</ion-content>
