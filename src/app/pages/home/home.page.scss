@@ -29,6 +29,7 @@ ion-title {
 }
 
 .asistencia, .duoc, .uc {
+  color: var(--ion-color-secondary);
   font-size: 28px; // Tamaño de fuente ajustado para evitar corte
   font-weight: 600; // Negrita moderada para todas las palabras
 }
