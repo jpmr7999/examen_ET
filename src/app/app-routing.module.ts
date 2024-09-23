@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: 'qr-code',
-    loadChildren: () => import('./qr-code/qr-code.module').then( m => m.QrCodePageModule)
+    loadChildren: () => import('./pages/qr-code/qr-code.module').then( m => m.QrCodePageModule)
   },
   {
     path: 'fecha-asistencia',
@@ -33,7 +33,7 @@ const routes: Routes = [
   },
   {
     path: 'ver-asistencia',
-    loadChildren: () => import('./ver-asistencia/ver-asistencia.module').then( m => m.VerAsistenciaPageModule)
+    loadChildren: () => import('./pages/ver-asistencia/ver-asistencia.module').then( m => m.VerAsistenciaPageModule)
   },
   {
     path: 'alumno-principal',

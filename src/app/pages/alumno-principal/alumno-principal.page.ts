@@ -18,7 +18,7 @@ export class AlumnoPrincipalPage implements OnInit {
   }
 
   irAAsistencia() {
-    this.navCtrl.navigateForward('/asistencia'); // Cambia '/asistencia' por la ruta de tu página de asistencia
+    this.navCtrl.navigateForward('/ver-asistencia'); // Cambia '/asistencia' por la ruta de tu página de asistencia
   }
 
   irACodigoQR() {
