@@ -25,11 +25,11 @@ export class ConfirmAsistenciaPage {
 
     // Redirigir a la página de inicio después de un pequeño retraso
     setTimeout(() => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/alumno-principal']);
     }, 2000); // Esperar 2 segundos antes de redirigir
   }
 
   cancelar() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/alumno-principal']);
   }
 }

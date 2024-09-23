@@ -13,7 +13,7 @@ export class AlumnoPage {
 
   login() {
     // Aquí iría la lógica para autenticar al usuario
-    this.router.navigate(['/confirm-asistencia']);  // Redirigimos a la página de confirmar asistencia
+    this.router.navigate(['/alumno-principal']);  // Redirigimos a la página de confirmar asistencia
   }
 
   async resetPassword() {
