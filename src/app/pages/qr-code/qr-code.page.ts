@@ -10,7 +10,7 @@ export class QrCodePage {
 
   constructor(private router: Router) { }
 
-  goToAlumno() {
-    this.router.navigate(['/alumno']);
+  goToConfirmAsistencia() {
+    this.router.navigate(['/confirm-asistencia']);
   }
 }
