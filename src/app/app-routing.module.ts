@@ -16,10 +16,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/principal/principal.module').then(m => m.PrincipalPageModule)
   },
   {
-    path: 'alumno',
-    loadChildren: () => import('./pages/alumno/alumno.module').then( m => m.AlumnoPageModule)
-  },
-  {
     path: 'qr-code',
     loadChildren: () => import('./pages/qr-code/qr-code.module').then( m => m.QrCodePageModule)
   },
