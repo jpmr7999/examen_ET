@@ -29,13 +29,25 @@ export class DatabaseService {
         this.db = dbConnection;
         await this.db.open();
 
-        // Crear la tabla manualmente si no existe
-        await this.db.execute(`
-          CREATE TABLE IF NOT EXISTS items (
-            id INTEGER PRIMARY KEY NOT NULL,
-            name TEXT
-          );
-        `);
+        // Crear la tabla manualmente si no existe usando executeSet()
+        const createTableQuery = [
+          {
+            statement: `
+              CREATE TABLE IF NOT EXISTS items (
+                id INTEGER PRIMARY KEY NOT NULL,
+                name TEXT
+              );
+            `,
+            values: []
+          }
+        ];
+
+        try {
+          await this.db.executeSet(createTableQuery);  // Usamos executeSet para ejecutar la sentencia SQL
+          console.log('Table created successfully');
+        } catch (error) {
+          console.error('Error creating table:', error);
+        }
 
         console.log('Database and table initialized successfully');
       }
