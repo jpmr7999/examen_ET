@@ -17,7 +17,7 @@ export class HomePage {
     private router: Router,
     private navCtrl: NavController,
     private alertCtrl: AlertController,
-    private LocaldbService: LocaldbService // Inyecta el servicio
+    private LocaldbService: LocaldbService 
   ) {
     // Establece las credenciales iniciales en LocalStorage (puedes hacerlo una vez)
     this.LocaldbService.setCredentials('admin@profesor.duoc.cl', 'duoc2024');
