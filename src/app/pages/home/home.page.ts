@@ -9,7 +9,6 @@ import { LocaldbService } from '../../Service/localdb.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage {
-
   email: string = '';
   password: string = '';
 
@@ -17,10 +16,10 @@ export class HomePage {
     private router: Router,
     private navCtrl: NavController,
     private alertCtrl: AlertController,
-    private LocaldbService: LocaldbService 
+    private localDbService: LocaldbService
   ) {
-    // Establece las credenciales iniciales en LocalStorage (puedes hacerlo una vez)
-    this.LocaldbService.setCredentials('admin@profesor.duoc.cl', 'duoc2024');
+    // Inicializa las credenciales solo una vez
+    this.localDbService.initializeCredentials();
   }
 
   async onSubmit() {
@@ -32,12 +31,14 @@ export class HomePage {
       });
       await alert.present();
     } else {
-      // Obtiene las credenciales almacenadas
-      const { email: storedEmail, password: storedPassword } = this.LocaldbService.getCredentials();
+      // Obtener los usuarios almacenados
+      const users = this.localDbService.getUsers();
 
-      // Validar credenciales
-      if (this.email === storedEmail && this.password === storedPassword) {
-        this.router.navigate(['/principal']);
+      // Validar credenciales y redirigir a diferentes páginas
+      if (this.email === users.admin.email && this.password === users.admin.password) {
+        this.router.navigate(['./principal']); // Redirigir a la página del administrador
+      } else if (this.email === users.alumno.email && this.password === users.alumno.password) {
+        this.router.navigate(['/alumno-principal']); // Redirigir a la página del alumno
       } else {
         const alert = await this.alertCtrl.create({
           header: 'Error',

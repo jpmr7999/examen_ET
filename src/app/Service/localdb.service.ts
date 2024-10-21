@@ -4,20 +4,21 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LocaldbService {
-
   constructor() { }
 
-  // Método para guardar credenciales
-  setCredentials(email: string, password: string) {
-    localStorage.setItem('email', email);
-    localStorage.setItem('password', password);
+  // Método para inicializar las credenciales
+  initializeCredentials() {
+    const users = {
+      admin: { email: 'admin@profesor.duoc.cl', password: 'duoc2024' },
+      alumno: { email: 'alumno@duocuc.cl', password: 'duoc' },
+    };
+
+    localStorage.setItem('users', JSON.stringify(users));
   }
 
-  // Método para obtener credenciales
-  getCredentials() {
-    return {
-      email: localStorage.getItem('email'),
-      password: localStorage.getItem('password')
-    };
+  // Método para obtener todas las credenciales
+  getUsers() {
+    const users = localStorage.getItem('users');
+    return users ? JSON.parse(users) : {};
   }
 }
