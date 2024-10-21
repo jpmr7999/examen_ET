@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController, AlertController } from '@ionic/angular'; //a mostrar mensajes de error
+import { NavController, AlertController } from '@ionic/angular';
+import { LocaldbService } from '../../Service/localdb.service';
 
 @Component({
   selector: 'app-home',
@@ -15,14 +16,15 @@ export class HomePage {
   constructor(
     private router: Router,
     private navCtrl: NavController,
-    private alertCtrl: AlertController // Con esto muestro los errores
-  ) {}
+    private alertCtrl: AlertController,
+    private LocaldbService: LocaldbService // Inyecta el servicio
+  ) {
+    // Establece las credenciales iniciales en LocalStorage (puedes hacerlo una vez)
+    this.LocaldbService.setCredentials('admin@profesor.duoc.cl', 'duoc2024');
+  }
 
-  // Método para manejar la verificación y envío del formulario
   async onSubmit() {
-    // Verificar que el email y la contraseña no estén vacíos
     if (this.email.trim() === '' || this.password.trim() === '') {
-      // Mostrar una alerta si alguno de los campos está vacío
       const alert = await this.alertCtrl.create({
         header: 'Error',
         message: 'Por favor, completa ambos campos.',
@@ -30,12 +32,23 @@ export class HomePage {
       });
       await alert.present();
     } else {
-      // Si todo está bien, navega a la página principal
-      this.router.navigate(['/principal']);
+      // Obtiene las credenciales almacenadas
+      const { email: storedEmail, password: storedPassword } = this.LocaldbService.getCredentials();
+
+      // Validar credenciales
+      if (this.email === storedEmail && this.password === storedPassword) {
+        this.router.navigate(['/principal']);
+      } else {
+        const alert = await this.alertCtrl.create({
+          header: 'Error',
+          message: 'Email o contraseña incorrectos.',
+          buttons: ['OK']
+        });
+        await alert.present();
+      }
     }
   }
 
-  //  restablecer contraseña
   async onResetPassword() {
     const alert = await this.alertCtrl.create({
       header: 'Restablecer Contraseña',
@@ -57,7 +70,6 @@ export class HomePage {
     await alert.present();
   }
 
-  // Lógica para enviar el correo de restablecimiento (esto es solo un ejemplo)
   sendPasswordResetEmail() {
     console.log('Correo de restablecimiento enviado');
   }
