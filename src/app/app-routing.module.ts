@@ -40,8 +40,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/escanearqr/escanearqr.module').then( m => m.EscanearqrPageModule)
   }
 
-
-
 ];
 
 @NgModule({

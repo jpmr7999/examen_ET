@@ -7,10 +7,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./qr-code.page.scss'],
 })
 export class QrCodePage {
+  qrData: string = '';  // Inicializa como vacío
+  generatedQRCode: boolean = false;  // Controla la visualización del QR
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
+  // Genera el código QR
+  generateQRCode() {
+    if (this.qrData.trim() !== '') {  // Asegúrate de que no esté vacío
+      console.log('Texto para generar QR:', this.qrData); // Verifica el valor
+      this.generatedQRCode = true; // Muestra el QR
+    } else {
+      console.log('El campo está vacío');
+      this.generatedQRCode = false; // No muestra el QR
+    }
+  }
+
+  // Navega a la página de confirmación de asistencia
   goToConfirmAsistencia() {
-    this.router.navigate(['/confirm-asistencia']);
+    this.router.navigate(['/principal']);
   }
 }

@@ -1,0 +1,15 @@
+.qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    height: 100%; /* Asegura que el contenedor ocupe toda la altura del contenido */
+  }
+  
+  .qr-code {
+    margin: 20px 0; /* Espaciado alrededor del código QR */
+    display: flex;
+    justify-content: center; /* Centra el código QR horizontalmente */
+    align-items: center; /* Centra el código QR verticalmente */
+  }
+  

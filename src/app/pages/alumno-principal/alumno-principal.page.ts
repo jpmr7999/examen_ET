@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { LocaldbService } from '../../Service/localdb.service'; // Cambiado al nuevo servicio
 
 @Component({
   selector: 'app-alumno-principal',
@@ -7,21 +8,27 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./alumno-principal.page.scss'],
 })
 export class AlumnoPrincipalPage implements OnInit {
-  
-  constructor(private navCtrl: NavController) { }
+  historialAsistencias: { fecha: string, hora: string, nombre: string, institucion: string, curso: string }[] = [];
+
+  constructor(private navCtrl: NavController, private localdbService: LocaldbService) { }
 
   ngOnInit() {
+    // Inicializa el historial de asistencias si es necesario
+    this.localdbService.initializeHistorial();
+
+    // Carga el historial de asistencias desde localStorage
+    this.historialAsistencias = this.localdbService.getHistorialAsistencias();
   }
 
   logout() {
-    this.navCtrl.navigateRoot('/alumno'); // Redirige a la página 'alumno'
+    this.navCtrl.navigateRoot('/alumno');
   }
 
   irAAsistencia() {
-    this.navCtrl.navigateForward('/ver-asistencia'); // Cambia '/asistencia' por la ruta de tu página de asistencia
+    this.navCtrl.navigateForward('/ver-asistencia');
   }
 
   irACodigoQR() {
-    this.navCtrl.navigateForward('/escanearqr'); // Cambia '/codigo-qr' por la ruta de tu página de código QR
+    this.navCtrl.navigateForward('/escanearqr');
   }
 }
