@@ -1,35 +1,35 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
+import { LocaldbService } from '../../Service/localdb.service'; // Cambiado al nuevo servicio
 
 @Component({
-  selector: 'app-confirm-asistencia',
+  selector: 'app-confirmar-asistencia',
   templateUrl: './confirm-asistencia.page.html',
   styleUrls: ['./confirm-asistencia.page.scss'],
 })
-export class ConfirmAsistenciaPage {
+export class ConfirmarAsistenciaPage {
 
-  constructor(private router: Router, private toastController: ToastController) { }
+  constructor(private navCtrl: NavController, private localdbService: LocaldbService) { }
 
-  async confirmarAsistencia() {
-    // Lógica para confirmar asistencia aquí
-    console.log('Asistencia confirmada');
+  confirmarAsistencia() {
+    const fechaActual = new Date();
+    const nuevaAsistencia = {
+      fecha: fechaActual.toLocaleDateString(),
+      hora: fechaActual.toLocaleTimeString(),
+      nombre: 'Jose Vasquez', // Nombre del alumno
+      institucion: 'Duoc UC',
+      curso: 'Informática y redes ocultas'
+    };
 
-    // Mostrar el toast de confirmación
-    const toast = await this.toastController.create({
-      message: 'Tu asistencia ha sido confirmada exitosamente.',
-      duration: 2000, // Duración en milisegundos
-      position: 'top' // Posición del toast
-    });
-    toast.present();
+    // Guarda la asistencia en localStorage
+    this.localdbService.guardarAsistencia(nuevaAsistencia);
 
-    // Redirigir a la página de inicio después de un pequeño retraso
-    setTimeout(() => {
-      this.router.navigate(['/alumno-principal']);
-    }, 2000); // Esperar 2 segundos antes de redirigir
+    // Navega de regreso a la página principal del alumno
+    this.navCtrl.navigateRoot('/alumno-principal');
   }
 
   cancelar() {
-    this.router.navigate(['/alumno-principal']);
+    // Regresa a la página principal sin guardar asistencia
+    this.navCtrl.back();
   }
 }

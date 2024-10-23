@@ -1,0 +1,32 @@
+.qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    height: 100%; /* Asegura que el contenedor ocupe toda la altura del contenido */
+  }
+  
+  .qr-code {
+    margin: 20px 0; /* Espaciado alrededor del código QR */
+    display: flex;
+    justify-content: center; /* Centra el código QR horizontalmente */
+    align-items: center; /* Centra el código QR verticalmente */
+  }
+  
+  .qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Para centrar verticalmente */
+  }
+  
+  .qr-square {
+    background-color: blue; /* Color de fondo azul */
+    padding: 10px; /* Espacio alrededor del QR */
+    border-radius: 10px; /* Esquinas redondeadas, opcional */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
