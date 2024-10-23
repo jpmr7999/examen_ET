@@ -14,7 +14,7 @@ export class AgregarNuevoPage {
   rol: string = 'alumno'; // Por defecto, rol es 'alumno'
   emailPrefix: string = ''; // Prefijo del email editable
   dominio: string = '@duocuc.cl'; // Dominio por defecto
-  universidad: string = ''; // Para seleccionar la universidad
+  universidad: string = 'DuocUC'; // Universidad por defecto es DuocUC
 
   constructor(private navCtrl: NavController, private localdbService: LocaldbService) { }
 
@@ -31,12 +31,24 @@ export class AgregarNuevoPage {
     this.navCtrl.navigateBack('/home'); // Redirige a la página de inicio
   }
 
-  // Método para cambiar el dominio según la universidad seleccionada
+  // Método para cambiar el dominio según la universidad y rol seleccionados
   onUniversidadChange() {
+    this.updateDominio(); // Actualiza el dominio al cambiar la universidad
+  }
+
+  // Método para cambiar el dominio según el rol
+  onRolChange() {
+    this.updateDominio();  // Actualiza el dominio al cambiar el rol
+  }
+
+  // Actualiza el dominio basado en el rol y la universidad
+  updateDominio() {
     if (this.universidad === 'DuocUC') {
-      this.dominio = '@duocuc.cl';
+      this.dominio = this.rol === 'alumno' ? '@duocuc.cl' : '@profesor.duocuc.cl';
+    } else if (this.universidad === 'Inacap') {
+      this.dominio = this.rol === 'alumno' ? '@inacap.cl' : '@profesor.inacap.cl';
     } else if (this.universidad === 'Otra') {
-      this.dominio = '@otrainstitucion.cl'; // Cambiar el dominio según la institución seleccionada
+      this.dominio = this.rol === 'alumno' ? '@otroalumno.cl' : '@otroprofesor.cl';
     }
   }
 }

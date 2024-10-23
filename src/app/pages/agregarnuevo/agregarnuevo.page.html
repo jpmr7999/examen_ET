@@ -25,7 +25,7 @@
         </ion-item>
         <ion-item>
           <ion-label>Rol</ion-label>
-          <ion-select [(ngModel)]="rol">
+          <ion-select [(ngModel)]="rol" (ionChange)="onRolChange()">
             <ion-select-option value="alumno">Alumno</ion-select-option>
             <ion-select-option value="profesor">Profesor</ion-select-option>
           </ion-select>
@@ -34,6 +34,7 @@
           <ion-label>Universidad</ion-label>
           <ion-select [(ngModel)]="universidad" (ionChange)="onUniversidadChange()" required>
             <ion-select-option value="DuocUC">Duoc UC</ion-select-option>
+            <ion-select-option value="Inacap">Inacap</ion-select-option>
             <ion-select-option value="Otra">Otra Institución</ion-select-option>
           </ion-select>
         </ion-item>
