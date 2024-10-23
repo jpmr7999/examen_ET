@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class QrCodePage {
   qrData: string = '';  // Inicializa como vacío
   generatedQRCode: boolean = false;  // Controla la visualización del QR
+  selectedSegment: string = 'generate'; // Valor por defecto del segmento
 
   constructor(private router: Router) {}
 
@@ -26,5 +27,11 @@ export class QrCodePage {
   // Navega a la página de confirmación de asistencia
   goToConfirmAsistencia() {
     this.router.navigate(['/principal']);
+  }
+
+  // Lógica para escanear el código QR
+  scanQRCode() {
+    // Implementa la lógica para escanear el código QR aquí
+    console.log('Escaneando código QR...');
   }
 }

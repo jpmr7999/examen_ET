@@ -18,7 +18,7 @@ export class HomePage {
     private alertCtrl: AlertController,
     private localDbService: LocaldbService
   ) {
-    // Inicializa las credenciales solo una vez
+    // Inicializa las credenciales solo una vez si no existen
     this.localDbService.initializeCredentials();
   }
 
@@ -33,12 +33,18 @@ export class HomePage {
     } else {
       // Obtener los usuarios almacenados
       const users = this.localDbService.getUsers();
+      const userKeys = Object.keys(users);
+      const validUser = userKeys.find(key => 
+        users[key].email === this.email && users[key].password === this.password
+      );
 
       // Validar credenciales y redirigir a diferentes páginas
-      if (this.email === users.admin.email && this.password === users.admin.password) {
-        this.router.navigate(['./principal']); // Redirigir a la página del administrador
-      } else if (this.email === users.alumno.email && this.password === users.alumno.password) {
-        this.router.navigate(['/alumno-principal']); // Redirigir a la página del alumno
+      if (validUser) {
+        if (users[validUser].rol === 'administrador') {
+          this.router.navigate(['./principal']); // Redirigir a la página del administrador
+        } else {
+          this.router.navigate(['/alumno-principal']); // Redirigir a la página del alumno
+        }
       } else {
         const alert = await this.alertCtrl.create({
           header: 'Error',
@@ -49,13 +55,11 @@ export class HomePage {
       }
     }
   }
+
   agregarNuevoUsuario() {
-    // Aquí puedes agregar la lógica para agregar un nuevo usuario
-    // Por ejemplo, redirigir a una página para crear un nuevo usuario
     this.navCtrl.navigateForward('/agregarnuevo'); // Reemplaza con la ruta correcta
   }
   
-
   async onResetPassword() {
     const alert = await this.alertCtrl.create({
       header: 'Restablecer Contraseña',

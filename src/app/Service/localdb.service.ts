@@ -64,6 +64,7 @@ export class LocaldbService {
   // Método para guardar un nuevo usuario
   guardarUsuario(nuevoUsuario: { nombre: string; email: string; password: string; rol: string }) {
     const users = this.getUsers();
+    console.log('Guardando usuario:', nuevoUsuario); // Agregado para depuración
     users[nuevoUsuario.email] = nuevoUsuario; // Guarda el usuario utilizando su email como clave
     localStorage.setItem('users', JSON.stringify(users));
   }
