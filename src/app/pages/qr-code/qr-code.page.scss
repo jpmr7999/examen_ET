@@ -13,3 +13,20 @@
     align-items: center; /* Centra el código QR verticalmente */
   }
   
+  .qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Para centrar verticalmente */
+  }
+  
+  .qr-square {
+    background-color: blue; /* Color de fondo azul */
+    padding: 10px; /* Espacio alrededor del QR */
+    border-radius: 10px; /* Esquinas redondeadas, opcional */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
