@@ -9,6 +9,7 @@ import { LocaldbService } from '../../Service/localdb.service'; // Cambiado al n
 })
 export class AlumnoPrincipalPage implements OnInit {
   historialAsistencias: { fecha: string, hora: string, nombre: string, institucion: string, curso: string }[] = [];
+  nombreUsuario: string = ''; // Nueva propiedad para almacenar el nombre del usuario
 
   constructor(private navCtrl: NavController, private localdbService: LocaldbService) { }
 
@@ -18,6 +19,13 @@ export class AlumnoPrincipalPage implements OnInit {
 
     // Carga el historial de asistencias desde localStorage
     this.historialAsistencias = this.localdbService.getHistorialAsistencias();
+
+    // Obtiene el nombre del usuario
+    this.nombreUsuario = this.localdbService.getNombreUsuario(); // Asegúrate de que este método exista en tu servicio
+  }
+
+  irAHome() {
+    this.navCtrl.navigateRoot('/home');
   }
 
   logout() {

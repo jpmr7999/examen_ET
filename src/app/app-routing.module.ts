@@ -38,7 +38,12 @@ const routes: Routes = [
   {
     path: 'escanearqr',
     loadChildren: () => import('./pages/escanearqr/escanearqr.module').then( m => m.EscanearqrPageModule)
+  },
+  {
+    path: 'agregarnuevo',
+    loadChildren: () => import('./pages/agregarnuevo/agregarnuevo.module').then( m => m.AgregarnuevoPageModule)
   }
+
 
 ];
 
