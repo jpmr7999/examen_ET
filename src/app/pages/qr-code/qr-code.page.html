@@ -10,20 +10,8 @@
 </ion-header>
 
 <ion-content class="qr-container">
-  <!-- Campo de entrada para el texto del QR -->
-  <ion-item>
-    <ion-label position="floating">Texto para el QR</ion-label>
-    <ion-input [(ngModel)]="qrData"></ion-input>
-  </ion-item>
-
-  <!-- Botón para generar el código QR -->
-  <ion-button expand="full" (click)="generateQRCode()">Generar QR</ion-button>
-
-  <!-- Mostrar el código QR si se ha generado -->
-  <div *ngIf="generatedQRCode" class="qr-code">
-    <ngx-qrcode [qrc-value]="qrData"></ngx-qrcode>
+  <div class="qr-square">
+    <qr-code value="Hello world!" size="200" errorCorrectionLevel="M"></qr-code>
   </div>
-
-  <!-- Botón para ir a la página de confirmación de asistencia -->
   <ion-button expand="full" color="secondary" (click)="goToConfirmAsistencia()">Confirmar Asistencia</ion-button>
 </ion-content>
