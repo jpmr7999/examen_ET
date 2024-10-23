@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title><span class="titulo">Agregar Nuevo Usuario</span></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Primer Nombre</ion-label>
+          <ion-input [(ngModel)]="primerNombre" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Primer Apellido</ion-label>
+          <ion-input [(ngModel)]="primerApellido" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="password" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Rol</ion-label>
+          <ion-select [(ngModel)]="rol" (ionChange)="onRolChange()">
+            <ion-select-option value="alumno">Alumno</ion-select-option>
+            <ion-select-option value="profesor">Profesor</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Universidad</ion-label>
+          <ion-select [(ngModel)]="universidad" (ionChange)="onUniversidadChange()" required>
+            <ion-select-option value="DuocUC">Duoc UC</ion-select-option>
+            <ion-select-option value="Inacap">Inacap</ion-select-option>
+            <ion-select-option value="Otra">Otra Institución</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Email</ion-label>
+          <ion-input [(ngModel)]="emailPrefix" required></ion-input>
+          <ion-label>{{ dominio }}</ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-button expand="full" (click)="onSubmit()">Agregar Usuario</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

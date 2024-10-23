@@ -49,6 +49,12 @@ export class HomePage {
       }
     }
   }
+  agregarNuevoUsuario() {
+    // Aquí puedes agregar la lógica para agregar un nuevo usuario
+    // Por ejemplo, redirigir a una página para crear un nuevo usuario
+    this.navCtrl.navigateForward('/agregarnuevo'); // Reemplaza con la ruta correcta
+  }
+  
 
   async onResetPassword() {
     const alert = await this.alertCtrl.create({

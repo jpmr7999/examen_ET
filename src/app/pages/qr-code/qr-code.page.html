@@ -1,15 +1,29 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button defaultHref="/fecha-asistencia"></ion-back-button>
     </ion-buttons>
-    <ion-title>QR Code</ion-title>
+    <ion-title>
+      Generador de Código QR
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
-    <h2 style="text-align: center;">Aquí está tu código QR</h2>
-    <img src="assets/escaneame.png" alt="Código QR" style="width: 200px; height: 200px; margin-top: 20px;" (click)="goToConfirmAsistencia()">
+<ion-content class="qr-container">
+  <!-- Campo de entrada para el texto del QR -->
+  <ion-item>
+    <ion-label position="floating">Texto para el QR</ion-label>
+    <ion-input [(ngModel)]="qrData"></ion-input>
+  </ion-item>
+
+  <!-- Botón para generar el código QR -->
+  <ion-button expand="full" (click)="generateQRCode()">Generar QR</ion-button>
+
+  <!-- Mostrar el código QR si se ha generado -->
+  <div *ngIf="generatedQRCode" class="qr-code">
+    <ngx-qrcode [qrc-value]="qrData"></ngx-qrcode>
   </div>
+
+  <!-- Botón para ir a la página de confirmación de asistencia -->
+  <ion-button expand="full" color="secondary" (click)="goToConfirmAsistencia()">Confirmar Asistencia</ion-button>
 </ion-content>
