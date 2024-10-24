@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/fecha-asistencia"></ion-back-button>
     </ion-buttons>
@@ -7,31 +7,33 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <ion-segment [(ngModel)]="selectedSegment">
     <ion-segment-button value="generate">
-      <ion-label>Generate QR</ion-label>
+      <ion-label>Generar QR</ion-label>
     </ion-segment-button>
     <ion-segment-button value="scan">
-      <ion-label>Scan QR</ion-label>
+      <ion-label>Escanear QR</ion-label>
     </ion-segment-button>
   </ion-segment>
 
-  <div *ngIf="selectedSegment === 'generate'">
-    <h2>Generador de Código QR</h2>
+  <div *ngIf="selectedSegment === 'generate'" class="generate-container">
+    <h2 class="section-title">Generador de Código QR</h2>
     <ion-input 
       placeholder="Ingresa el texto para el QR" 
       [(ngModel)]="qrData" 
+      class="qr-input"
     ></ion-input>
-    <ion-button expand="full" (click)="generateQRCode()">Generar QR</ion-button>
+    <ion-button expand="full" color="primary" (click)="generateQRCode()" class="generate-button">Generar QR</ion-button>
 
-    <div *ngIf="generatedQRCode">  <!-- Muestra el QR solo si se ha generado -->
+    <!-- Contenedor del QR con fondo azul y centrado -->
+    <div *ngIf="generatedQRCode" class="qr-code-container">
       <qr-code [value]="qrData" size="300" errorCorrectionLevel="M"></qr-code>
     </div>
   </div>
 
-  <div *ngIf="selectedSegment === 'scan'">
-    <h2>Escáner de Código QR</h2>
-    <ion-button expand="full" (click)="scanQRCode()">Escanear QR</ion-button>
+  <div *ngIf="selectedSegment === 'scan'" class="scan-container">
+    <h2 class="section-title">Escáner de Código QR</h2>
+    <ion-button expand="full" color="secondary" (click)="scanQRCode()">Escanear QR</ion-button>
   </div>
 </ion-content>

@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
+      <ion-back-button defaultHref="/alumno-principal"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title class="title">Asistencias alumno</ion-title>
@@ -8,27 +11,27 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <h2 style="text-align: center; font-size: 1.4rem; margin-top: 10px;">Registro de Asistencia</h2>
+  <div class="container">
+    <h2 class="header-title">Registro de Asistencia</h2>
     
     <!-- Accordion Group para asignaturas -->
     <ion-accordion-group>
       <ion-accordion *ngFor="let asignatura of asistenciasPorAsignatura">
-        <!-- Encabezado de cada asignatura (eliminar el icono manual) -->
-        <ion-item slot="header" color="light" style="--padding-start: 20px;">
+        <!-- Encabezado de cada asignatura -->
+        <ion-item slot="header" color="light" class="accordion-header">
           <ion-label>
-            <h3 style="font-size: 1rem; font-weight: bold;">{{ asignatura.nombre }}</h3>
+            <h3 class="asignatura-title">{{ asignatura.nombre }}</h3>
           </ion-label>
         </ion-item>
         
         <!-- Lista de registros de asistencia -->
-        <ion-list slot="content" style="padding-left: 10px; padding-right: 10px;">
+        <ion-list slot="content" class="registro-list">
           <ion-item *ngFor="let registro of asignatura.registros">
-            <ion-label>
-              <h3 style="font-size: 0.9rem;">{{ registro.fecha }}</h3>
-              <p style="font-size: 0.8rem; color: #666;">Estado: {{ registro.estado }}</p>
+            <ion-label class="registro-label">
+              <h3 class="registro-fecha">{{ registro.fecha }}</h3>
+              <p class="registro-estado">Estado: {{ registro.estado }}</p>
             </ion-label>
-            <ion-badge slot="end" [color]="registro.estado === 'Presente' ? 'success' : (registro.estado === 'Justificado' ? 'warning' : 'danger')" style="font-size: 0.8rem;">
+            <ion-badge slot="end" [color]="registro.estado === 'Presente' ? 'success' : (registro.estado === 'Justificado' ? 'warning' : 'danger')" class="estado-badge">
               {{ registro.estado }}
             </ion-badge>
           </ion-item>

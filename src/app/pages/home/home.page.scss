@@ -115,12 +115,50 @@ ion-input-password-toggle {
   --border-radius: 30px; // Botón aún más redondo
 }
 
-// Botón para restablecer contraseña
-.reset-button {
-  --color: var(--ion-color-secondary); // Color de texto secundario
-  --border-radius: 30px; // Botón redondeado
-  margin-top: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-size: 14px;
+.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
+
+.form-container {
+  width: 90%;  // Ajusta según necesites
+  max-width: 400px;  // Limita el ancho máximo
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  text-align: center;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  margin-top: 20px; // Espacio superior para los botones
+}
+
+.custom-button {
+  margin: 5px 0; // Espacio entre botones
+}
+
+.accept-button {
+  --background: #3880ff; // Color de fondo personalizado
+  --color: white; // Color del texto
+}
+
+.reset-button {
+  --color: #ffffff; // Color del texto
+}
+
+.add-user-button {
+  --background: #28a745; // Color de fondo para agregar nuevo usuario
+  --color: white; // Color del texto
+}
+

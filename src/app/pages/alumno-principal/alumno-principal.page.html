@@ -2,7 +2,7 @@
   <ion-toolbar color="tertiary">
     <ion-title>
       <div class="title-container">
-        <span class="RegistrApp">RegistrApp</span>
+        <span class="registrapp-title">RegistrApp</span>
       </div>
     </ion-title>
     <ion-buttons slot="end">
@@ -13,24 +13,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <!-- Imagen de usuario -->
-  <div style="text-align: center; margin-bottom: 20px;">
-    <img src="assets/moto.png" alt="Jose Vasquez" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid #007bff;">
+  <div class="user-image-container">
+    <img src="assets/moto.png" alt="Jose Vasquez" class="user-image">
   </div>
 
   <!-- Mensaje de bienvenida -->
-  <h2 style="text-align: center; margin-bottom: 10px;">Bienvenido, {{ nombreUsuario }}</h2>
+  <h2 class="welcome-message">Bienvenido, {{ nombreUsuario }}</h2>
 
   <!-- Sección de las ion-cards -->
-  <ion-card color="primary" (click)="irAAsistencia()">
+  <ion-card color="primary" class="action-card" (click)="irAAsistencia()">
     <ion-card-header>
       <ion-card-title>Asistencia</ion-card-title>
       <ion-card-subtitle>Revisa tu Asistencia Aquí!</ion-card-subtitle>
     </ion-card-header>
   </ion-card>
 
-  <ion-card color="secondary" (click)="irACodigoQR()">
+  <ion-card color="secondary" class="action-card" (click)="irACodigoQR()">
     <ion-card-header>
       <ion-card-title>Código QR</ion-card-title>
       <ion-card-subtitle>Registra tu Asistencia</ion-card-subtitle>
@@ -48,9 +48,9 @@
           <ion-list>
             <ion-item *ngFor="let asistencia of historialAsistencias">
               <ion-label>
-                <h2>{{ asistencia.fecha }} - {{ asistencia.hora }}</h2>
+                <h2 class="asistencia-date">{{ asistencia.fecha }} - {{ asistencia.hora }}</h2>
                 <p>{{ asistencia.nombre }} - {{ asistencia.curso }}</p>
-                <p>{{ asistencia.institucion }}</p>
+                <p class="institucion">{{ asistencia.institucion }}</p>
               </ion-label>
             </ion-item>
           </ion-list>

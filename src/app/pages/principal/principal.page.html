@@ -1,35 +1,35 @@
 <ion-header>
-  <ion-toolbar color="danger"> <!-- Aquí cambiamos el color a rojo usando el color "danger" -->
+  <ion-toolbar color="danger">
     <!-- Logo a la izquierda -->
     <ion-buttons slot="start">
       <ion-title>RegistrApp</ion-title>
     </ion-buttons>
 
- <!-- Botón de cerrar sesión a la derecha -->
+    <!-- Botón de cerrar sesión a la derecha -->
     <ion-buttons slot="end">
-      <ion-button (click)="logout()"> <!-- Llama a la función logout() al hacer clic -->
-        <ion-icon name="person-outline" slot="icon-only"></ion-icon> <!-- Icono de persona -->
+      <ion-button (click)="logout()">
+        <ion-icon name="person-outline" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-</ion-header>   
+</ion-header>
 
 <!-- Contenido principal -->
-<ion-content [fullscreen]="true">
-  <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
-    <h2 style="text-align: center;">Bienvenido, ¿Qué deseas hacer hoy?</h2>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="welcome-container">
+    <h2 class="welcome-title">Bienvenido, ¿Qué deseas hacer hoy?</h2>
 
     <!-- Cuadro de info -->
-    <div style="text-align: center; margin-top: 20px; border: 1px solid #ddd; border-radius: 12px; padding: 20px; width: 80%; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-      <img src="assets/xokas.jpg" alt="Gonzalo Perez" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 15px; border: 2px solid #007bff;">
-      <h3 style="margin: 10px 0; font-weight: bold; color: #333;">Gonzalo Perez</h3>
-      <p style="margin: 5px 0; font-size: 16px; color: #555;">Institución: <strong>Duocuc</strong></p>
-      <p style="margin: 5px 0; font-size: 16px; color: #555;">Profesor: <strong>Informática</strong></p>
+    <div class="info-card">
+      <img src="assets/xokas.jpg" alt="Gonzalo Perez" class="profile-image">
+      <h3 class="profile-name">Gonzalo Perez</h3>
+      <p class="institution">Institución: <strong>Duocuc</strong></p>
+      <p class="subject">Profesor: <strong>Informática</strong></p>
     </div>
 
     <!-- Mensaje adicional -->
-    <p style="margin: 10px 0; font-size: 14px; color: #666; text-align: center; max-width: 80%;">
-      Recuerda que es fundamental que tus alumnos marquen su asistencia. ¡Asegúrate de motivarlos a participar en las clases.
+    <p class="reminder-message">
+      Recuerda que es fundamental que tus alumnos marquen su asistencia. ¡Asegúrate de motivarlos a participar en las clases!
     </p>
 
     <!-- Botón para marcar asistencia -->
@@ -38,7 +38,7 @@
       color="primary"
       shape="round"
       size="large"
-      style="--border-radius: 12px; --padding-start: 16px; --padding-end: 16px; margin-top: 20px;"
+      class="attendance-button"
       (click)="goToFechaAsistenciaPage()">
       <ion-icon slot="start" name="qr-code-outline"></ion-icon>
       Marcar asistencia

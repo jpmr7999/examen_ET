@@ -8,34 +8,38 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <div class="outer-container">
     <div class="form-container">
       <ion-card>
+        <ion-card-header>
+          <ion-card-title class="card-title">Iniciar Sesión</ion-card-title>
+          <ion-card-subtitle class="card-subtitle">Por favor, ingresa tus credenciales</ion-card-subtitle>
+        </ion-card-header>
         <ion-card-content>
           <ion-list>
             <ion-item>
-              <!-- Vinculamos el email con la propiedad 'email' -->
-              <ion-input labelPlacement="floating" [(ngModel)]="email">
-                <div slot="label">Email <ion-text color="danger">(Required)</ion-text></div>
+              <ion-input labelPlacement="floating" [(ngModel)]="email" required>
+                <div slot="label">Email <ion-text color="danger">(Requerido)</ion-text></div>
               </ion-input>
             </ion-item>
             <ion-item>
-              <!-- Vinculamos la contraseña con la propiedad 'password' -->
-              <ion-input type="password" label="Password" [(ngModel)]="password">
+              <ion-input type="password" label="Contraseña" [(ngModel)]="password" required>
                 <ion-input-password-toggle slot="end"></ion-input-password-toggle>
               </ion-input>
             </ion-item>
           </ion-list>
 
-          <!-- Botón Aceptar que ejecuta el método onSubmit -->
-          <ion-button class="custom-button accept-button" expand="full" (click)="onSubmit()">Aceptar</ion-button>
+          <div class="button-container">
+            <!-- Botón Aceptar que ejecuta el método onSubmit -->
+            <ion-button class="custom-button accept-button" expand="full" (click)="onSubmit()">Aceptar</ion-button>
 
-          <!-- Botón para restablecer contraseña -->
-          <ion-button class="custom-button reset-button" expand="full" fill="clear" (click)="onResetPassword()">Restablecer contraseña</ion-button>
+            <!-- Botón para restablecer contraseña -->
+            <ion-button class="custom-button reset-button" expand="full" fill="clear" (click)="onResetPassword()">Restablecer contraseña</ion-button>
 
-          <!-- Nuevo botón para agregar un nuevo usuario -->
-          <ion-button class="custom-button add-user-button" expand="full" (click)="agregarNuevoUsuario()">Agregar nuevo usuario</ion-button>
+            <!-- Nuevo botón para agregar un nuevo usuario -->
+            <ion-button class="custom-button add-user-button" expand="full" (click)="agregarNuevoUsuario()">Agregar nuevo usuario</ion-button>
+          </div>
         </ion-card-content>
       </ion-card>
     </div>

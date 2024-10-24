@@ -19,6 +19,12 @@ export class AgregarNuevoPage {
   constructor(private navCtrl: NavController, private localdbService: LocaldbService) { }
 
   onSubmit() {
+    // Validar si todos los campos están completos
+    if (!this.primerNombre || !this.primerApellido || !this.password || !this.emailPrefix || !this.rol || !this.universidad) {
+      alert('Por favor, rellena todos los campos obligatorios.');
+      return; // Detener la ejecución si falta algún campo
+    }
+
     const nuevoUsuario = {
       nombre: `${this.primerNombre} ${this.primerApellido}`,
       email: `${this.emailPrefix}${this.dominio}`, // Concatenar el prefijo con el dominio
