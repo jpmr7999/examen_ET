@@ -11,6 +11,7 @@ import { LocaldbService } from '../../Service/localdb.service';
 export class HomePage {
   email: string = '';
   password: string = '';
+  showPassword: boolean = false; // Controla la visibilidad de la contraseña
 
   constructor(
     private router: Router,
@@ -18,8 +19,11 @@ export class HomePage {
     private alertCtrl: AlertController,
     private localDbService: LocaldbService
   ) {
-    // Inicializa las credenciales solo una vez si no existen
     this.localDbService.initializeCredentials();
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword; // Alterna la visibilidad
   }
 
   async onSubmit() {
@@ -31,19 +35,17 @@ export class HomePage {
       });
       await alert.present();
     } else {
-      // Obtener los usuarios almacenados
       const users = this.localDbService.getUsers();
       const userKeys = Object.keys(users);
       const validUser = userKeys.find(key => 
         users[key].email === this.email && users[key].password === this.password
       );
 
-      // Validar credenciales y redirigir a diferentes páginas
       if (validUser) {
         if (users[validUser].rol === 'administrador') {
-          this.router.navigate(['./principal']); // Redirigir a la página del administrador
+          this.router.navigate(['./principal']);
         } else {
-          this.router.navigate(['/alumno-principal']); // Redirigir a la página del alumno
+          this.router.navigate(['/alumno-principal']);
         }
       } else {
         const alert = await this.alertCtrl.create({
@@ -57,7 +59,7 @@ export class HomePage {
   }
 
   agregarNuevoUsuario() {
-    this.navCtrl.navigateForward('/agregarnuevo'); // Reemplaza con la ruta correcta
+    this.navCtrl.navigateForward('/agregarnuevo');
   }
   
   async onResetPassword() {
