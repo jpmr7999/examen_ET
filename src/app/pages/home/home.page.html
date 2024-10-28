@@ -23,8 +23,10 @@
                 <div slot="label">Email <ion-text color="danger">(Requerido)</ion-text></div>
               </ion-input>
             </ion-item>
+            <!-- Mueve el item de la contraseña fuera del item del correo -->
             <ion-item>
               <ion-input type="password" label="Contraseña" [(ngModel)]="password" required>
+                <div slot="label">Contraseña <ion-text color="danger">(Requerido)</ion-text></div>
                 <ion-input-password-toggle slot="end"></ion-input-password-toggle>
               </ion-input>
             </ion-item>

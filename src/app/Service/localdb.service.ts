@@ -22,7 +22,7 @@ export class LocaldbService {
         rol: 'alumno'
       },
       profesor: {
-        email: 'profesor@profesor.duocuc.cl',
+        email: 'profesor@profesor.duoc.cl',
         password: 'duoc2024',
         nombre: 'Luis Morales',
         rol: 'profesor'
@@ -64,7 +64,7 @@ export class LocaldbService {
   // Método para guardar un nuevo usuario
   guardarUsuario(nuevoUsuario: { nombre: string; email: string; password: string; rol: string }) {
     const users = this.getUsers();
-    console.log('Guardando usuario:', nuevoUsuario); // Agregado para depuración
+    console.log('Guardando usuario:', nuevoUsuario); // Para depuración
     users[nuevoUsuario.email] = nuevoUsuario; // Guarda el usuario utilizando su email como clave
     localStorage.setItem('users', JSON.stringify(users));
   }
@@ -92,7 +92,8 @@ export class LocaldbService {
   // Método para obtener el nombre del usuario logueado
   getNombreUsuario() {
     const users = this.getUsers();
-    const user = Object.keys(users).find(key => localStorage.getItem('loggedInUser') === key);
+    const loggedInUserEmail = localStorage.getItem('loggedInUser'); // Asegúrate de que esta línea esté correcta
+    const user = Object.keys(users).find(key => users[key].email === loggedInUserEmail);
     return user ? users[user].nombre : '';
   }
 }
