@@ -45,7 +45,8 @@ export class HomePage {
         // Almacenar el email del usuario logueado
         localStorage.setItem('loggedInUser', users[validUser].email);
 
-        if (users[validUser].rol === 'administrador') {
+
+        if (users[validUser].rol === 'profesor') {
           this.router.navigate(['./principal']);
         } else {
           this.router.navigate(['/alumno-principal']);
