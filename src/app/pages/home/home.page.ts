@@ -42,6 +42,9 @@ export class HomePage {
       );
 
       if (validUser) {
+        // Almacenar el email del usuario logueado
+        localStorage.setItem('loggedInUser', users[validUser].email);
+
         if (users[validUser].rol === 'administrador') {
           this.router.navigate(['./principal']);
         } else {

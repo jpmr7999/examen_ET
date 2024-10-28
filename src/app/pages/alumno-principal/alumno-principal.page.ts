@@ -21,7 +21,8 @@ export class AlumnoPrincipalPage implements OnInit {
     this.historialAsistencias = this.localdbService.getHistorialAsistencias();
 
     // Obtiene el nombre del usuario
-    this.nombreUsuario = this.localdbService.getNombreUsuario(); // Asegúrate de que este método exista en tu servicio
+    this.nombreUsuario = this.localdbService.getNombreUsuario();
+    console.log('Nombre de usuario:', this.nombreUsuario); // Para depuración
   }
 
   irAHome() {

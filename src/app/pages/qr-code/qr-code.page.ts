@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-qr-code',
@@ -10,17 +11,30 @@ export class QrCodePage {
   qrData: string = '';  // Inicializa como vacío
   generatedQRCode: boolean = false;  // Controla la visualización del QR
   selectedSegment: string = 'generate'; // Valor por defecto del segmento
+  fechaClase: string = ''; // Añade una propiedad para la fecha de la clase
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private alertCtrl: AlertController) {}
 
-  // Genera el código QR
-  generateQRCode() {
-    if (this.qrData.trim() !== '') {  // Asegúrate de que no esté vacío
-      console.log('Texto para generar QR:', this.qrData); // Verifica el valor
-      this.generatedQRCode = true; // Muestra el QR
+  // Método para validar la fecha y generar el código QR
+  async validateAndGenerateQRCode() {
+    const currentDate = new Date();
+    const currentDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()); // Fecha actual sin hora
+    
+    const inputDate = new Date(this.fechaClase);
+    const inputDay = new Date(inputDate.getFullYear(), inputDate.getMonth(), inputDate.getDate()); // Fecha de entrada sin hora
+
+    // Compara las fechas sin hora
+    if (inputDay < currentDay) { // Permite que la fecha sea igual o mayor a la actual
+      const alert = await this.alertCtrl.create({
+        header: 'Error',
+        message: 'La fecha no puede ser anterior a la fecha actual.',
+        buttons: ['OK']
+      });
+      await alert.present();
     } else {
-      console.log('El campo está vacío');
-      this.generatedQRCode = false; // No muestra el QR
+      // Genera el código QR solo si la fecha es válida
+      this.generatedQRCode = true; // Muestra el QR
+      console.log('Texto para generar QR:', this.qrData); // Verifica el valor
     }
   }
 
@@ -31,7 +45,6 @@ export class QrCodePage {
 
   // Lógica para escanear el código QR
   scanQRCode() {
-    // Implementa la lógica para escanear el código QR aquí
     console.log('Escaneando código QR...');
   }
 }
