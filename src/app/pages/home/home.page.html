@@ -25,21 +25,16 @@
             </ion-item>
             <!-- Mueve el item de la contraseña fuera del item del correo -->
             <ion-item>
-              <ion-input type="password" label="Contraseña" [(ngModel)]="password" required>
+              <ion-input labelPlacement="floating" [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password" required>
                 <div slot="label">Contraseña <ion-text color="danger">(Requerido)</ion-text></div>
-                <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+                <ion-input-password-toggle slot="end" (click)="togglePasswordVisibility()"></ion-input-password-toggle>
               </ion-input>
             </ion-item>
           </ion-list>
 
           <div class="button-container">
-            <!-- Botón Aceptar que ejecuta el método onSubmit -->
             <ion-button class="custom-button accept-button" expand="full" (click)="onSubmit()">Aceptar</ion-button>
-
-            <!-- Botón para restablecer contraseña -->
             <ion-button class="custom-button reset-button" expand="full" fill="clear" (click)="onResetPassword()">Restablecer contraseña</ion-button>
-
-            <!-- Nuevo botón para agregar un nuevo usuario -->
             <ion-button class="custom-button add-user-button" expand="full" (click)="agregarNuevoUsuario()">Agregar nuevo usuario</ion-button>
           </div>
         </ion-card-content>
