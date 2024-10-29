@@ -18,25 +18,32 @@ export class QrCodePage {
   // Método para validar la fecha y generar el código QR
   async validateAndGenerateQRCode() {
     const currentDate = new Date();
-    const currentDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()); // Fecha actual sin hora
-    
-    const inputDate = new Date(this.fechaClase);
-    const inputDay = new Date(inputDate.getFullYear(), inputDate.getMonth(), inputDate.getDate()); // Fecha de entrada sin hora
+    // Restamos un día a la fecha actual para permitir el día anterior
+    const currentDateMinusOne = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - 1);
 
-    // Compara las fechas sin hora
-    if (inputDay < currentDay) { // Permite que la fecha sea igual o mayor a la actual
+    const inputDate = new Date(this.fechaClase);
+
+    // Formateamos las fechas en formato DD-MM-YYYY solo para mostrar en consola si es necesario
+    const currentDateStr = `${currentDateMinusOne.getDate().toString().padStart(2, '0')}-${(currentDateMinusOne.getMonth() + 1).toString().padStart(2, '0')}-${currentDateMinusOne.getFullYear()}`;
+    const inputDateStr = `${inputDate.getDate().toString().padStart(2, '0')}-${(inputDate.getMonth() + 1).toString().padStart(2, '0')}-${inputDate.getFullYear()}`;
+
+    console.log('Fecha actual (permitiendo el día anterior):', currentDateStr);
+    console.log('Fecha ingresada:', inputDateStr);
+
+    // Comparamos permitiendo el día anterior
+    if (inputDate < currentDateMinusOne) {
       const alert = await this.alertCtrl.create({
         header: 'Error',
-        message: 'La fecha no puede ser anterior a la fecha actual.',
+        message: 'La fecha no puede ser anterior al día anterior a la fecha actual.',
         buttons: ['OK']
       });
       await alert.present();
     } else {
-      // Genera el código QR solo si la fecha es válida
-      this.generatedQRCode = true; // Muestra el QR
-      console.log('Texto para generar QR:', this.qrData); // Verifica el valor
+      this.generatedQRCode = true;
+      console.log('Texto para generar QR:', this.qrData);
     }
   }
+
 
   // Navega a la página de confirmación de asistencia
   goToConfirmAsistencia() {
