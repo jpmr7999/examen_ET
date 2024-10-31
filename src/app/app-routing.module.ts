@@ -42,7 +42,12 @@ const routes: Routes = [
   {
     path: 'agregarnuevo',
     loadChildren: () => import('./pages/agregarnuevo/agregarnuevo.module').then( m => m.AgregarnuevoPageModule)
+  },
+  {
+    path: 'reestablecer',
+    loadChildren: () => import('./pages/reestablecer/reestablecer.module').then( m => m.ReestablecerPageModule)
   }
+
 
 
 ];

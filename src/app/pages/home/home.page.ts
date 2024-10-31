@@ -37,7 +37,7 @@ export class HomePage {
     } else {
       const users = this.localDbService.getUsers();
       const userKeys = Object.keys(users);
-      const validUser = userKeys.find(key => 
+      const validUser = userKeys.find(key =>
         users[key].email === this.email && users[key].password === this.password
       );
 
@@ -65,27 +65,11 @@ export class HomePage {
   agregarNuevoUsuario() {
     this.navCtrl.navigateForward('/agregarnuevo');
   }
-  
-  async onResetPassword() {
-    const alert = await this.alertCtrl.create({
-      header: 'Restablecer Contraseña',
-      message: '¿Te gustaría recibir un enlace a tu correo para restablecer tu contraseña?',
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-        },
-        {
-          text: 'Enviar enlace',
-          handler: () => {
-            this.sendPasswordResetEmail();
-          }
-        }
-      ]
-    });
 
-    await alert.present();
+  async onResetPassword() {
+    this.navCtrl.navigateForward('/reestablecer');
   }
+
 
   sendPasswordResetEmail() {
     console.log('Correo de restablecimiento enviado');
