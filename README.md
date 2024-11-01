@@ -1,3 +1,3 @@
 Hecho Por 
-Matias Gonzales
+Matias Gonzalez
 Juan Pablo Mora

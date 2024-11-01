@@ -1,0 +1,4 @@
+ext {
+    FIREBASE_API_KEY = "tu_api_key"
+    FIREBASE_APP_ID = "tu_app_id"
+}
