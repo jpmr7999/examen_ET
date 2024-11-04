@@ -50,7 +50,13 @@ export class LocaldbService {
         password: 'otro2024',
         nombre: 'Pedro Gonzalez',
         rol: 'profesor'
-      }
+      },
+      otrotro: {
+        email: 'mat.gonzalez6@duocuc.cl',
+        password: 'uwu',
+        nombre: 'Matias Gonzalez',
+        rol: 'Alumno'
+      },
     };
     localStorage.setItem('users', JSON.stringify(users));
   }
