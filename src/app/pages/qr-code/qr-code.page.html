@@ -1,41 +1,9 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/fecha-asistencia"></ion-back-button>
-    </ion-buttons>
-    <ion-title>QR Code App</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-item >
+  <ion-label position="stacked">Texto para QR</ion-label>
+  <ion-input [(ngModel)]="inputText" placeholder="Ingresa el texto"></ion-input>
+</ion-item>
+<ion-button expand="full" (click)="generateQRCode()">Generar QR</ion-button>
 
-<ion-content class="ion-padding">
-  <ion-segment [(ngModel)]="selectedSegment">
-    <ion-segment-button value="generate">
-      <ion-label>Generar QR</ion-label>
-    </ion-segment-button>
-
-  </ion-segment>
-
-  <div *ngIf="selectedSegment === 'generate'" class="generate-container">
-    <h2 class="section-title">Generador de Código QR</h2>
-    
-    <ion-input 
-      placeholder="Ingresa la fecha de la clase (YYYY-MM-DD)" 
-      [(ngModel)]="fechaClase" 
-      class="qr-input"
-      type="date"
-    ></ion-input>
-    
-    <ion-input 
-      placeholder="Ingresa el texto para el QR" 
-      [(ngModel)]="qrData" 
-      class="qr-input"
-    ></ion-input>
-
-    <ion-button expand="full" color="primary" (click)="validateAndGenerateQRCode()" class="generate-button">Generar QR</ion-button>
-
-    <!-- Contenedor del QR con fondo azul y centrado -->
-    <div *ngIf="generatedQRCode" class="qr-code-container">
-      <qr-code [value]="qrData" size="300" errorCorrectionLevel="M"></qr-code>
-    </div>
-  </div>
-</ion-content>
+<ng-container *ngIf="qrData">
+  <qr-code [qrdata]="qrData" [size]="256" [level]="'M'"></qr-code>
+</ng-container>
