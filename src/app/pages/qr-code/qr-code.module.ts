@@ -4,8 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { QrCodePageRoutingModule } from './qr-code-routing.module';
-import { QrCodePage } from './qr-code.page';
-import { QrCodeModule } from 'ng-qrcode';
 
 
 @NgModule({
@@ -14,9 +12,7 @@ import { QrCodeModule } from 'ng-qrcode';
     FormsModule,
     IonicModule,
     QrCodePageRoutingModule,
-    QrCodeModule
   ],
-  declarations: [QrCodePage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]  // Añadir esta línea
 })
 export class QrCodePageModule {}
